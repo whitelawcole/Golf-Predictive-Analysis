@@ -1,8 +1,8 @@
 import streamlit as st
 import sqlite3
-import matplotlib.pyplot as plt
+#import matplotlib.pyplot as plt
 import pandas as pd
-import seaborn as sns 
+#import seaborn as sns 
 from sklearn.preprocessing import StandardScaler
 import numpy as np
 from sklearn.model_selection import train_test_split
