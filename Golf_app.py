@@ -346,7 +346,7 @@ def render_stats_page():
     plt.xticks(rotation=90)
     plt.tight_layout()
     plt.legend(['Positive', 'Negative'], loc='upper right')  # Add legend
-    st.pyplot()
+    st.pyplot(fig)
     
 
 def render_data_page():
