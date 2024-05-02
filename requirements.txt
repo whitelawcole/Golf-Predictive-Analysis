@@ -4,7 +4,6 @@ matplotlib
 pandas
 seaborn
 scikit-learn
-sklearn
 numpy
 plotly
 
