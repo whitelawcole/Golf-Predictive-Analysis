@@ -12,7 +12,7 @@ import numpy as np
 #from sklearn.decomposition import PCA
 #from sklearn.cluster import KMeans 
 #import mplcursors
-import plotly.express as px
+#import plotly.express as px
 
 
 conn = sqlite3.connect('Golf_data.db')
