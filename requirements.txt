@@ -1,7 +1,11 @@
+streamlit
 sqlite3
 matplotlib
 pandas
 seaborn
+scikit-learn
 sklearn
 numpy
 plotly
+
+
