@@ -77,7 +77,7 @@ def box_plot_cluster():
     plt.ylabel('Mean Value')
     plt.xticks(rotation=0)
     plt.legend(title='Stat')
-    st.pyplot()
+    st.pyplot(fig)
 
 
 def parse_distance(distance_str):
