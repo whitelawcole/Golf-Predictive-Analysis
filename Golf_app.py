@@ -5,13 +5,13 @@ import pandas as pd
 #import seaborn as sns 
 #from sklearn.preprocessing import StandardScaler
 import numpy as np
-from sklearn.model_selection import train_test_split
-from sklearn.linear_model import LinearRegression
-from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
-from sklearn.preprocessing import StandardScaler
-from sklearn.decomposition import PCA
-from sklearn.cluster import KMeans 
-import mplcursors
+#from sklearn.model_selection import train_test_split
+#from sklearn.linear_model import LinearRegression
+#from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
+#from sklearn.preprocessing import StandardScaler
+#from sklearn.decomposition import PCA
+#from sklearn.cluster import KMeans 
+#import mplcursors
 import plotly.express as px
 
 
