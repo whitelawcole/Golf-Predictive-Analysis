@@ -432,7 +432,7 @@ def render_conclusion_page():
         3. What difficulties did you have in completing the project?
             
             Answer: Finding all the data and scraping it was the most difficult part of the project. Ensuring that the data was collected and inputted 
-            correctly into the data based was a challenge because making a small mistake could corupt the entire data base. It was also not easy to scrape from PGA.com, the html was very messy and unorganized making it difficult to structure the data in order to properly input it into my database.  
+            correctly into the data base was a challenge because making a small mistake could corupt the entire data base. It was also not easy to scrape from PGA.com, the html was very messy and unorganized making it difficult to structure the data in order to properly input it into my database.  
 
         4. What skills did you wish you had while you were doing the project?
         
