@@ -331,7 +331,7 @@ def render_stats_page():
     visualize_clusters(principal_components, kmeans.labels_, 'KMeans Clustering with 2 clusters')
 
     st.write('''
-    This graph below shows how the courses were clustered, the statistics labeled in the middle and the bar graph respresenting the mean of those statistics. 
+    This graph below shows how the courses were clustered, the statistics labeled in the middle and the bar graph respresenting the mean values of those statistics. 
              ''')
     # Show box plot
     box_plot_cluster()
