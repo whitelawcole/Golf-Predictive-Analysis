@@ -52,6 +52,7 @@ cursor.execute('''
     year UNIQUE PRIMARY KEY )
 ''')
 
+#Table for Player Stats
 cursor.execute('''
     CREATE TABLE IF NOT EXISTS "Player Stats" (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -90,6 +91,8 @@ cursor.execute('''
             FOREIGN KEY(year) REFERENCES Years
         )
     ''')
+
+#Table for course stats
 cursor.execute('''
     CREATE TABLE IF NOT EXISTS "Course Stats" (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
