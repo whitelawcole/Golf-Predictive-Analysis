@@ -51,8 +51,8 @@ def visualize_clusters(data, clusters, title):
     
     # Create a Plotly figure
     fig_plotly = px.scatter(
-        y=data[:, 0],
         x=data[:, 1],
+        y=data[:, 0],
         color=clusters,
         color_continuous_scale='viridis',
         hover_name=course_names,
