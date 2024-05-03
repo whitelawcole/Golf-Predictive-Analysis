@@ -13,7 +13,7 @@ from sklearn.decomposition import PCA
 from sklearn.cluster import KMeans 
 import plotly.express as px
 
-
+# Export the data needed from the db to run analysis
 conn = sqlite3.connect('Golf_data.db')
 
 query = "SELECT * FROM 'Course Stats'"
@@ -30,6 +30,7 @@ pca = PCA(n_components=2)
 principal_components = pca.fit_transform(cluster_df[columns])
 conn.close()
 
+# Function to create an elbow plot for kmeans
 def optimise_k_means(data, max_k):
     means = []
     inertias = []
@@ -44,7 +45,7 @@ def optimise_k_means(data, max_k):
     fig.update_layout(plot_bgcolor='white')
     st.plotly_chart(fig)
 
-
+#  function to create a graph plotting the course clusters
 def visualize_clusters(data, clusters, title):
 
     
@@ -63,7 +64,7 @@ def visualize_clusters(data, clusters, title):
     # Display Plotly figure in Streamlit
     st.plotly_chart(fig_plotly)
 
-
+# function to create a box plot to visualize how the courses were clustered
 def box_plot_cluster():
     # Group the DataFrame by cluster label
     cluster_groups = cluster_df.groupby('kmeans_2')
@@ -81,7 +82,7 @@ def box_plot_cluster():
     plt.legend(title='Stat')
     st.pyplot(fig)
 
-
+# Convert the hole proximity stat into inches
 def parse_distance(distance_str):
     # Check if distance_str is empty
     if not distance_str:
@@ -105,7 +106,8 @@ def parse_distance(distance_str):
         return int(distance_list[0]) * 12  # Only feet provided, convert to inches
     else:
         return np.nan  # Invalid format, return NaN
-
+        
+# Function to run the Multiple Linear Regression
 def run_mlr(year, cluster):
     conn = sqlite3.connect('Golf_data.db')
 
@@ -201,16 +203,7 @@ def run_mlr(year, cluster):
     df = pd.DataFrame(prediction_series, columns=['Values'])
     return df
     
-
-def query_database(query):
-    conn = sqlite3.connect('Golf_data.db')
-    cursor = conn.cursor()
-    cursor.execute(query)
-    data = cursor.fetchall()
-    conn.close()
-    return data
-
-
+# Function to query Course Info
 def get_course_info(tournament, year):
     conn = sqlite3.connect('Golf_data.db')
     cursor = conn.cursor()
@@ -228,6 +221,7 @@ def get_course_info(tournament, year):
         course_info = "No Data for this year"
     return course_info
 
+# Function to query winner info 
 def get_winner_info(tournament, year):
     conn = sqlite3.connect('Golf_data.db')
     cursor = conn.cursor()
@@ -244,6 +238,7 @@ def get_winner_info(tournament, year):
     conn.close()
     return winner_name, player_info
 
+# Function to Query Winner stats
 def get_winner_stats(tournament, year):
     conn = sqlite3.connect('your_database.db')
     cursor = conn.cursor()
@@ -252,7 +247,7 @@ def get_winner_stats(tournament, year):
     conn.close()
     return winner_stats
 
-
+# Function to get tournament names
 def get_unique_values_from_db(column_name, table_name):
     conn = sqlite3.connect('Golf_data.db')
     cursor = conn.cursor()
@@ -261,7 +256,7 @@ def get_unique_values_from_db(column_name, table_name):
     conn.close()
     return [value[0] for value in unique_values]
 
-
+# Create multiple pages
 def main():
     st.title('PGA Data Exploration Project')
 
@@ -280,6 +275,7 @@ def main():
     elif page == 'Questions':
         render_conclusion_page()
 
+# Create main page to answer questions 
 def render_main_page():
     st.header('Main Page')
     st.write('Questions/Answers')
@@ -307,7 +303,7 @@ def render_main_page():
         
     '''
     )
-
+# Render stats page
 def render_stats_page():
     st.header('Statistical Analysis')
     st.write('''This analysis uses a kmeans clusterig algorithm to group each course into a cluster, based on the analyis 2 clusters was the most reasonable (Cluster 0 & Cluster 1, see elbow plot). 
@@ -322,6 +318,7 @@ def render_stats_page():
 
     The elbow plot below helps in selecting the optimal number of clusters for K-means clustering. A good clustering solution strikes a balance between having enough clusters to capture the underlying structure of the data without overfitting. The elbow point provides a heuristic for choosing the number of clusters that best represents the inherent patterns in the data.
     ''')
+    # Create elow graph 
     optimise_k_means(cluster_df[columns], 10)
     
     kmeans = KMeans(n_clusters=2)
@@ -331,15 +328,17 @@ def render_stats_page():
     This graph below provides a visual representation of data points in a two-dimensional space, with clusters differentiated by color.
     The graph is also interactave so you can see which course falls within each cluster by putting your cursor over a point on the graph. 
              ''')
+    # Show cluster graph
     visualize_clusters(principal_components, kmeans.labels_, 'KMeans Clustering with 2 clusters')
 
     st.write('''
     This graph below shows how the courses were clustered, the statistics labeled in the middle and the bar graph respresenting the mean of those statistics. 
              ''')
+    # Show box plot
     box_plot_cluster()
 
 
-
+    # Create interactivity to run Multiple Linear Regression on chosen years and clusters 
     st.write('''
     Here a multiple linear regression analysis will be ran based on the year and cluster you choose. The data will present with the variance explained of each statistic along with Absolute error, R2 Value, and Prediction Magnitude. 
     The bar graph plots each statistic and its variance explained showing which statistics had the largest impact on that year specific to the cluster you choose. 
@@ -372,7 +371,7 @@ def render_stats_page():
     plt.legend(['Positive', 'Negative'], loc='upper right')  # Add legend
     st.pyplot(fig)
     
-
+# Create data exploration page 
 def render_data_page():
     st.header('Data Exploration')
     st.write('Find course statistics and winner statistics for specific tournaments and years')
