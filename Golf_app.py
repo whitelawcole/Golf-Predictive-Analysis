@@ -15,11 +15,10 @@ import plotly.express as px
 
 st.sidebar.markdown(
     '''PGA Golf Data Science Project
-    DSCI 510
+    (DSCI 510)
     '''
 )
 
-st.markdown("DSCI 510")
 
 
 
