@@ -309,9 +309,9 @@ def render_main_page():
 def render_stats_page():
     st.header('Statistical Analysis')
     st.write('''This analysis uses a kmeans clusterig algorithm to group each course into a cluster, based on the analyis 2 clusters was the most reasonable (Cluster 0 & Cluster 1, see elbow plot). 
-             Based on the statistics cluster 0 courses seemed to be made up of shorter courses but harder skill play while cluster 1 courses were longer courses but easier skill play. After the clustering was done and added into the data base 
+             Based on the statistics, cluster 0 courses seemed to be made up of shorter courses but harder skill play while cluster 1 courses were longer courses but easier skill play. After the clustering was done and added into the data base 
              a multiple linear regression was used to compare the number of wins on a specific cluster against the player statistics. In the drop down menu below you can select a year and course cluster. This will show how much the course cluster wins 
-             were explained by player statistics and the variance explained of each stat. The bar graph will show which specific statistics hold the most weight for that year and course cluster. 
+             were explained by player statistics and the variance explained of each statistic. The bar graph will show which specific statistics hold the most weight for that year and course cluster. 
              
              ''')
     st.write('''
@@ -427,7 +427,7 @@ def render_conclusion_page():
 
             Answer: Based on the data I had there was not a clear answer as to which players did well on what courses. 
             The correlation was weak and it changed every year, maybe pointing to the fact that there is no correlation. More data or a different analysis may change this conclusion but more research needs to be done. 
-            I thought there would be a stornger correlation but this was not the case, the correlation was also very variable between each year and cluster.       
+            I thought there would be a stronger correlation but this was not the case.       
 
         3. What difficulties did you have in completing the project?
             
@@ -442,7 +442,7 @@ def render_conclusion_page():
 
         5. What would you do “next” to expand or augment the project?
             
-            Answer: I would try to find more data to use/input into the data base to make my analysis more robust. If there was more data or less missing values it may have been viable to run a multiple linear regression on all the years together instea dof doing it seperately. Also, I would try to run a multiple linear 
+            Answer: I would try to find more data to use/input into the data base to make my analysis more robust. If there was more data or less missing values it may have been viable to run a multiple linear regression on all the years together instead of doing it seperately. Also, I would try to run a multiple linear 
             regression for each course instead of clustering them. The clustering analysis may not be a perfect fit based on the variability of the courses. 
     ''')
 
