@@ -13,6 +13,15 @@ from sklearn.decomposition import PCA
 from sklearn.cluster import KMeans 
 import plotly.express as px
 
+st.sidebar.markdown(
+    "My Logo (sidebar) should be on top of the Navigation within the sidebar"
+)
+
+st.markdown("# Home")
+
+
+
+
 # Export the data needed from the db to run analysis
 conn = sqlite3.connect('Golf_data.db')
 
