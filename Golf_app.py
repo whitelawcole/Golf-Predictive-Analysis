@@ -411,7 +411,7 @@ def render_description_page():
         Data Set 1: Sportradar API: https://developer.sportradar.com/golf/reference/golf-overview
         This API returns all PGA tour golfers statistics per year, below is an example of one player in 2024 from the API endpoint. This is for Seung-Yul Noh in 2024. [{"id":"7d470d98-95a1-42a5-b5eb-39bd2259ac5f","first_name":"Seung-Yul","last_name":"Noh","country":"SOUTH KOREA","abbr_name":"S.Noh","statistics":{"events_played":1,"first_place":0,"second_place":0,"third_place":0,"top_10":0,"top_25":0,"cuts":0,"cuts_made":1,"withdrawals":0,"points":12.0,"points_rank":185,"earnings":21480.0,"earnings_rank":190,"drive_avg":293.6,"drive_acc":60.71,"gir_pct":72.22,"putt_avg":1.731,"sand_saves_pct":50.0,"birdies_per_round":4.25,"world_rank":538,"scrambling_pct":75.0,"scoring_avg":71.225,"total_driving":1998}}
 
-        Data set 2: pgatour.com: https://www.pgatour.com/schedule/2024 
+        Data Set 2: pgatour.com: https://www.pgatour.com/schedule/2024 
         For this data source I scraped all the past PGA tournament courses and winners. The data is stored in the HTML so I scraped the data using BeautifulSoup. 
 
         Data Set 3: https://datagolf.com/course-table
