@@ -29,7 +29,9 @@ cluster_df[columns] = scaler.fit_transform(cluster_df[columns])
 pca = PCA(n_components=2)
 principal_components = pca.fit_transform(cluster_df[columns])
 conn.close()
-
+ kmeans = KMeans(n_clusters=2)
+kmeans.fit(cluster_df[columns])
+cluster_df['kmeans_2'] = kmeans.labels_
 # Function to create an elbow plot for kmeans
 def optimise_k_means(data, max_k):
     means = []
@@ -321,9 +323,9 @@ def render_stats_page():
     # Create elow graph 
     optimise_k_means(cluster_df[columns], 10)
     
-    kmeans = KMeans(n_clusters=2)
-    kmeans.fit(cluster_df[columns])
-    cluster_df['kmeans_2'] = kmeans.labels_
+    #kmeans = KMeans(n_clusters=2)
+    #kmeans.fit(cluster_df[columns])
+    #cluster_df['kmeans_2'] = kmeans.labels_
     st.write('''
     This graph below provides a visual representation of data points in a two-dimensional space, with clusters differentiated by color.
     The graph is also interactave so you can see which course falls within each cluster by putting your cursor over a point on the graph. 
