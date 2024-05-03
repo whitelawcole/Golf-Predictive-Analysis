@@ -55,7 +55,7 @@ def visualize_clusters(data, clusters, title):
         x=data[:, 0],
         y=data[:, 1],
         color=clusters,
-        #color_continuous_scale='viridis',
+        color_continuous_scale='viridis',
         hover_name=course_names,
         title=title,
         labels={'x': 'Principal Component 1', 'y': 'Principal Component 2'}
