@@ -14,7 +14,9 @@ from sklearn.cluster import KMeans
 import plotly.express as px
 
 st.sidebar.markdown(
-    "PGA Golf Data Science Project"
+    '''PGA Golf Data Science Project
+    DSCI 510
+    '''
 )
 
 st.markdown("DSCI 510")
