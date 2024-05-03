@@ -14,10 +14,10 @@ from sklearn.cluster import KMeans
 import plotly.express as px
 
 st.sidebar.markdown(
-    "My Logo (sidebar) should be on top of the Navigation within the sidebar"
+    "PGA Golf Data Science Project"
 )
 
-st.markdown("# Home")
+st.markdown("DSCI 510")
 
 
 
