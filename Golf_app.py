@@ -290,19 +290,18 @@ def render_main_page():
         
         Answer:
         This web app is a presentation of PGA tour data for the years of 2013 through 2023. The data exploration page allows you to query through specific tournamnets and the year they were played. 
-        After the tournament and year is selected, the app will present the course it was played on along with its statistics, and the winner of that tournament along with the winners statistics for that year. 
+        After the tournament and year is selected, the app will present the course it was played on along with its statistics and the winner of that tournament along with the winners statistics for that year. 
         The statistical analysis was ran to find which player statistics have the largest impact on specific types of courses. The analysis uses a kmeans clustering algorithm to group the courses and a multiple linear regression
         analysis to find which player statistics have the largest impacts on course cluster wins. As of now it seems like there is not much correlation to player statistics and course cluster wins, this being shown on the statistical analysis page.
-        The statistical analysis has 4 graphs on the page. The elbow plot is is used to decide which amount of clusters was used to run the analysis, while the second graph visulizes the clusters to show how they were grouped. This graph is also interactive so you can find out which courses were apart of which cluster by clicking the point on the graph.
-        The third graph shows how the courses were clustered representing a bar graph of the mean of each course statistic of all the courses. The last part of this page allows you to choose a year and cluster to run a multiple linear regression on and creates a bar graph to see which player statistic had the largest impact in that year on the course cluster you chose.  
-        A better description of the analysis and its specific components can be explained on the Statistical analysis page.  
+        The statistical analysis pgae has 4 graphs. The elbow plot is is used to decide which amount of clusters was used to run the analysis, while the second graph visulizes the clusters to show how they were grouped. This graph is also interactive so you can find out which courses were apart of which cluster by clicking the point on the graph.
+        The third graph shows how the courses were clustered representing a bar graph of the mean of each course statistic of all the courses. The last part of this page allows you to choose a year and cluster to run a multiple linear regression on and creates a bar graph to see which player statistic had the largest impact in that year on the course cluster you chose.  A better description of the analysis and its specific components can be explained on the Statistical analysis page.  
 
         3. Any major “gotchas” (i.e. things that don’t work, go slowly, could be improved, etc.)
         
         Answer:
         Unfortunately, the analysis did not come to any major conclusions as to what statistics have the largest impact, even though there were some statistics that had a larger impact than others it was not significant. The analysis was ran for each year and each year had different results. 
-        It may have been beneficial to run this analysis for all the years which may have presented a better conclusion but it also may have been worse. The data seems to be a lot better in the current
-        years versus previous which may affect the this analysis in the later years presented. Also, the clustering of the courses is by no means perfect, there is not a clear cut distinction between the groups of courses. It also could have been beneficial 
+        It may have been beneficial to run this analysis for all years, which may have presented a better conclusion but it also may have been worse. The data seems to be a lot better in the current
+        years versus previous which may affect the analysis in the later years presented. Also, the clustering of the courses is by no means perfect, there is not a clear cut distinction between the groups of courses. It also could have been beneficial 
         to run a multiple linear regression on each course instead of using clusters but again the varaince could have been worse. 
 
         
