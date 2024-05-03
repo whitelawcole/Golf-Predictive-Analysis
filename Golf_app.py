@@ -29,7 +29,7 @@ cluster_df[columns] = scaler.fit_transform(cluster_df[columns])
 pca = PCA(n_components=2)
 principal_components = pca.fit_transform(cluster_df[columns])
 conn.close()
- kmeans = KMeans(n_clusters=2)
+kmeans = KMeans(n_clusters=2)
 kmeans.fit(cluster_df[columns])
 cluster_df['kmeans_2'] = kmeans.labels_
 # Function to create an elbow plot for kmeans
