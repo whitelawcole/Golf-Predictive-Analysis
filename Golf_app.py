@@ -147,13 +147,9 @@ def run_mlr(year, cluster):
     for player_name in  players['name']:
         # Filter player_stats for the desired year and player
         player_stats = stats[(stats['name'] == player_name) & (stats['year'] == str(year))]
-        #player_stats['hole_proximity_avg'] = player_stats['hole_proximity_avg'].apply(parse_distance)
         player_stats.loc[:, 'hole_proximity_avg'] = player_stats['hole_proximity_avg'].apply(parse_distance)
 
         # Count the number of wins for each cluster
-        
-
-        # Now you can perform operations on the DataFrame
         cluster_wins = len(cluster_players_df[cluster_players_df['Winner'] == player_name])
         # Append player's data to the list
         player_data_list.append({
@@ -178,16 +174,11 @@ def run_mlr(year, cluster):
     # Create a DataFrame from the list of player data
     player_stats_with_wins = pd.DataFrame(player_data_list)
 
-    # Display the resulting DataFrame
 
     conn.close()
 
-    #sns.lmplot(x='Hole_Proximity_Avg', y='Cluster_0_Wins', data=player_stats_with_wins)
-    #plt.show()
-
     mlr_df = player_stats_with_wins.drop(columns=['Name'], axis=1)
     mlr_df.dropna(inplace=True, axis=0)
-    #print(mlr_df)
 
     X = mlr_df[['Drive_Avg', 'Drive_Acc', 'Gir_Pct', 'Putt_Avg', 'Sand_Saves_Pct',
         'Birdies_Per_Round', 'Holes_Per_Eagle', 'Strokes_Gained',
@@ -199,7 +190,6 @@ def run_mlr(year, cluster):
 
     lr = LinearRegression()
     lr.fit(X_train, y_train)
-    #print(lr.score(X_train, y_train))
 
     y_pred = lr.predict(X_test)
     abs_error = mean_absolute_error(y_test, y_pred)
@@ -333,9 +323,6 @@ def render_stats_page():
     # Create elow graph 
     optimise_k_means(cluster_df[columns], 10)
     
-    #kmeans = KMeans(n_clusters=2)
-    #kmeans.fit(cluster_df[columns])
-    #cluster_df['kmeans_2'] = kmeans.labels_
     st.write('''
     This graph below provides a visual representation of data points in a two-dimensional space, with clusters differentiated by color.
     The graph is also interactave so you can see which course falls within each cluster by putting your cursor over a point on the graph. 
@@ -393,7 +380,7 @@ def render_data_page():
     # Create Year Option
     year_options = get_unique_values_from_db('year', 'Years')
     selected_year = st.selectbox('Select Year', year_options)
-    # Get Course info
+    # Get Course/Winner info
     course_info = get_course_info(selected_tournament, selected_year)
     st.subheader('Course Information')
     st.write(course_info)
@@ -425,10 +412,6 @@ def render_description_page():
         
     '''
     )
-
-
-
-
 
 
 def render_conclusion_page():
