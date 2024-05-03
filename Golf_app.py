@@ -295,7 +295,7 @@ def render_main_page():
         analysis to find which player statistics have the largest impacts on course cluster wins. As of now it seems like there is not much correlation to player statistics and course cluster wins, this being shown on the statistical analysis page.
         The statistical analysis has 4 graphs on the page. The elbow plot is is used to decide which amount of clusters was used to run the analysis, while the second graph visulizes the clusters to show how they were grouped. This graph is also interactive so you can find out which courses were apart of which cluster by clicking the point on the graph.
         The third graph shows how the courses were clustered representing a bar graph of the mean of each course statistic of all the courses. The last part of this page allows you to choose a year and cluster to run a multiple linear regression on and creates a bar graph to see which player statistic had the largest impact in that year on the course cluster you chose.  
-        A better description of the analysis and its specific componenets can be explained on the Statistical analysis page.  
+        A better description of the analysis and its specific components can be explained on the Statistical analysis page.  
 
         3. Any major “gotchas” (i.e. things that don’t work, go slowly, could be improved, etc.)
         
