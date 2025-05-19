@@ -2,7 +2,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from sklearn.preprocessing import StandardScaler
 from sklearn.decomposition import PCA
-from sklearn.cluster import KMeans 
+from sklearn.cluster import KMeans
 import numpy as np
 from sklearn.metrics import silhouette_score
 
@@ -77,11 +77,6 @@ def visualize_clusters(data, clusters, title):
     plt.xlabel('Principal Component 1')
     plt.ylabel('Principal Component 2')
     plt.colorbar(label='Cluster')
-    # Create a list of labels for each point
-    labels = [f'{course_names[i]}\nCluster: {clusters[i]}' for i in range(len(course_names))]
-    
-    # Enable interactive data cursors
-    mplcursors.cursor(scatter, hover=True).connect("add", lambda sel: sel.annotation.set_text(labels[sel.target.index]))
     
     plt.show()
     
