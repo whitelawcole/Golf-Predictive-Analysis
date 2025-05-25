@@ -86,7 +86,7 @@ pc1 = principal_components[:, 0].reshape(-1, 1)  # Reshape to a 2D array for KMe
 optimise_k_means(principal_components, 10)
 
 kmeans = KMeans(n_clusters=2, random_state=20)
-kmeans.fit(pc1)
+kmeans.fit(principle_componenets)
 cluster_df['kmeans_2'] = kmeans.labels_
 print(cluster_df)
 print(type(kmeans.labels_))
