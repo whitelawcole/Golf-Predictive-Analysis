@@ -17,7 +17,7 @@ df.drop(columns=drop_columns, inplace=True)
 scaler = StandardScaler()
 cluster_df = df
 columns = cluster_df.columns.tolist()
-cluster_df[columns] = scaler.fit_transform(cluster_df[columns])
+
 
 
 
